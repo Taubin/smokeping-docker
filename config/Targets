@@ -94,7 +94,7 @@ host = /InternetHosts/Trademe /InternetHosts/Cloudflare /InternetHosts/ANZ /Inte
 ++ IPv6Targets
 menu = Combined IPv6 Targets
 title = IPv6 Internet Targets
-host = /InternetHosts/Cloudflarev6 /InternetHosts/Facebookv6 /InternetHosts/Googlev6 /InternetHosts/Stuffv6 /InternetHosts/Mikrotikv6 /InternetHosts/Applev6 /InternetHosts/Signalv6 /InternetHosts/XboxLivev6 /InternetHosts/Netflixv6 /InternetHosts/YouTubev6
+host = /InternetHosts/Cloudflarev6 /InternetHosts/Facebookv6 /InternetHosts/Googlev6 /InternetHosts/Stuffv6 /InternetHosts/Mikrotikv6 /InternetHosts/Applev6 /InternetHosts/Signalv6 /InternetHosts/Netflixv6 /InternetHosts/YouTubev6
 
 ++ NZHerald
 menu = NZ Herald
