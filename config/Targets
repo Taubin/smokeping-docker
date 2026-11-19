@@ -1,0 +1,1386 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = thinkserver Network Latency
+remark = Homelab, Fibre & Cloud Telemetry (Auckland, NZ)
+
++ SummaryInternal
+menu = Internal Summary
+title = Internal Infrastructure Latency
+probe = FPing
+host = /InternalHosts/Router /InternalHosts/DNSVIPv4 /InternalHosts/ThinkServer /InternalHosts/Pi5 /InternalHosts/Pi5TV /InternalHosts/PlunkettServer
+
++ SummaryIPv4
+menu = IPv4 Internet Summary
+title = Key IPv4 Internet Targets
+probe = FPing
+host = /InternetHosts/Trademe /InternetHosts/Cloudflare /InternetHosts/Googlev4 /InternetHosts/Stuffv4 /InternetHosts/Netflixv4 /InternetHosts/YouTubev4 /InternetHosts/GitHubv4 /InternetHosts/Steamv4
+
++ SummaryIPv6
+menu = IPv6 Internet Summary
+title = Key IPv6 Internet Targets
+probe = FPing
+host = /InternetHosts/Cloudflarev6 /InternetHosts/Googlev6 /InternetHosts/Stuffv6 /InternetHosts/Netflixv6 /InternetHosts/YouTubev6
+
++ SummaryDNS
+menu = DNS Summary
+title = IPv4 DNS Latency
+probe = FPing
+host = /DNS/CloudflareDNS1 /DNS/GoogleDNS1 /DNS/Quad9 /DNS/NextDNSv41 /DNS/HomeDNS4
+
+
++ SummaryDNSLookup
+menu = DNS Lookups Summary
+title = DNS Response Time Comparison (IPv4)
+probe = DNS
+host = /DNSLookups/CloudflareDNSLU1 /DNSLookups/GoogleDNSLU1 /DNSLookups/OpenDNSLU1 /DNSLookups/Quad9LU /DNSLookups/QuicLU1 /DNSLookups/NextDNSLU1 /DNSLookups/HomeLU4
+
++ InternalHosts
+menu = Internal Hosts
+title = Internal Hosts
+
+++ CombinedInternal
+menu = Combined Internal
+title = Internal Infrastructure Latency
+host = /InternalHosts/Router /InternalHosts/DNSVIPv4 /InternalHosts/ThinkServer /InternalHosts/Pi5 /InternalHosts/Pi5TV /InternalHosts/PlunkettServer
+
+++ Router
+menu = UniFi Gateway
+title = UniFi Cloud Gateway Ultra (10.10.10.1)
+host = 10.10.10.1
+
+++ DNSVIPv4
+menu = Technitium DNS VIP (IPv4)
+title = Technitium Keepalived VIP (10.10.10.53)
+host = 10.10.10.53
+
+++ DNSVIPv6
+menu = Technitium DNS VIP (IPv6)
+title = Technitium IPv6 VIP (2404:4400:4126:8700::53)
+probe = FPing6
+host = 2404:4400:4126:8700::53
+
+++ ThinkServer
+menu = ThinkServer
+title = ThinkServer (10.10.10.58)
+host = 10.10.10.58
+
+++ Pi5
+menu = Pi5
+title = Raspberry Pi 5 (10.10.10.15)
+host = 10.10.10.15
+
+++ Pi5TV
+menu = Pi5-TV
+title = Raspberry Pi 5 TV (10.10.10.59)
+host = 10.10.10.59
+
+++ PlunkettServer
+menu = Plunkett-Server
+title = Unraid Server (plunkett-server)
+host = 10.10.10.10
+
++ InternetHosts
+menu = Internet Hosts
+title = Internet Hosts
+
+++ IPv4Targets
+menu = Combined Targets
+title = IPv4 Internet Targets
+host = /InternetHosts/Trademe /InternetHosts/Cloudflare /InternetHosts/ANZ /InternetHosts/KBIB /InternetHosts/ASB /InternetHosts/Facebookv4 /InternetHosts/Googlev4 /InternetHosts/Imgurv4 /InternetHosts/Stuffv4 /InternetHosts/Mikrotikv4 /InternetHosts/Applev4 /InternetHosts/Signalv4 /InternetHosts/XboxLivev4 /InternetHosts/MS365 /InternetHosts/Netflixv4 /InternetHosts/YouTubev4 /InternetHosts/GitHubv4 /InternetHosts/Steamv4
+
+++ IPv6Targets
+menu = Combined IPv6 Targets
+title = IPv6 Internet Targets
+host = /InternetHosts/Cloudflarev6 /InternetHosts/Facebookv6 /InternetHosts/Googlev6 /InternetHosts/Stuffv6 /InternetHosts/Mikrotikv6 /InternetHosts/Applev6 /InternetHosts/Signalv6 /InternetHosts/XboxLivev6 /InternetHosts/Netflixv6 /InternetHosts/YouTubev6
+
+++ NZHerald
+menu = NZ Herald
+title = NZ Herald News
+host = www.nzherald.co.nz
+
+++ UsenetTargets
+menu = Combined Usenet Targets
+title = Ping times for Usenet targets
+host = /InternetHosts/FrugalEU /InternetHosts/FrugalAU /InternetHosts/FrugalBonus /InternetHosts/NewsdemonUN /InternetHosts/NewshostingUN
+
+++ Trademe
+menu = Trademe
+title = Trademe
+host = www.trademe.co.nz
+
+++ Cloudflare
+menu = Cloudflare
+title = Cloudflare
+host = 1.1.1.1
+
+++ Cloudflarev6
+menu = Cloudflare IPv6
+title = Cloudflare IPv6
+probe = FPing6
+host = 2606:4700:4700::1111
+
+++ ANZ
+menu = ANZ
+title = ANZ Internet Banking (Imperva)
+host = www.anz.co.nz
+
+++ KBIB
+menu = Kiwibank
+title = Kiwibank Internet Banking (Akamai)
+host = www.ib.kiwibank.co.nz
+
+++ ASB
+menu = ASB
+title = ASB Internet Banking (Akamai)
+host = online.asb.co.nz
+
+++ Facebookv4
+menu = Facebook
+title = Facebook
+host = www.facebook.com
+
+++ Facebookv6
+menu = Facebook IPv6
+title = Facebook IPv6
+probe = FPing6
+host = www.facebook.com
+
+++ Googlev4
+menu = Google
+title = Google
+host = www.google.com
+
+++ Googlev6
+menu = Google IPv6
+title = Google IPv6
+probe = FPing6
+host = www.google.com
+
+++ Imgurv4
+menu = Imgur
+title = Imgur
+host = imgur.com
+
+++ Stuffv4
+menu = Stuff
+title = Stuff
+host = www.stuff.co.nz
+
+++ Stuffv6
+menu = Stuff IPv6
+title = Stuff IPv6
+probe = FPing6
+host = www.stuff.co.nz
+
+++ Mikrotikv4
+menu = Mikrotik
+title = Mikrotik Download IPv4
+host = download.mikrotik.com
+
+++ Mikrotikv6
+menu = Mikrotik IPv6
+title = Mikrotik Download IPv6
+probe = FPing6
+host = download.mikrotik.com
+
+++ Applev4
+menu = Apple
+title = Apple (Akamai)
+host = www.apple.com
+
+++ Applev6
+menu = Apple IPv6
+title = Apple IPv6 (Akamai)
+probe = FPing6
+host = www.apple.com
+
+++ Signalv4
+menu = Signal
+title = Signal IPv4
+host = chat.signal.org
+
+++ Signalv6
+menu = Signal IPv6
+title = Signal IPv6
+probe = FPing6
+host = chat.signal.org
+
+++ XboxLivev4
+menu = Xbox Live
+title = Xbox Live IPv4
+host = xboxlive.com
+
+++ Cloudflarev6_alt
+menu = Cloudflare IPv6
+title = Cloudflare IPv6 DNS (2606:4700:4700::1111)
+probe = FPing6
+host = 2606:4700:4700::1111
+
+++ MS365
+menu = Windows 365 AU Gateway
+title = Windows 365 AU Gateway
+host = rdweb.wvd.microsoft.com
+
+++ Netflixv4
+menu = Netflix
+title = Netflix IPv4
+host = www.netflix.com
+
+++ Netflixv6
+menu = Netflix IPv6
+title = Netflix IPv6
+probe = FPing6
+host = www.netflix.com
+
+++ YouTubev4
+menu = YouTube
+title = YouTube IPv4
+host = www.youtube.com
+
+++ YouTubev6
+menu = YouTube IPv6
+title = YouTube IPv6
+probe = FPing6
+host = www.youtube.com
+
+++ GitHubv4
+menu = GitHub
+title = GitHub IPv4
+host = github.com
+
+++ Steamv4
+menu = Steam
+title = Steam IPv4
+host = store.steampowered.com
+
+++ FrugalEU
+menu = Frugal Usenet EU
+title = Frugal Usenet EU
+host = eunews.frugalusenet.com
+
+++ FrugalAU
+menu = Frugal Usenet AU
+title = Frugal Usenet AU
+host = aunews.frugalusenet.com
+
+++ FrugalBonus
+menu = Frugal Bonus
+title = Frugal Bonus Server
+host = bonus.frugalusenet.com
+
+++ NewsdemonUN
+menu = Newsdemon
+title = Newsdemon
+host = news.newsdemon.com
+
+++ NewshostingUN
+menu = Newshosting
+title = Newshosting
+host = news.newshosting.com
+
++ DevServices
+menu = Dev Services
+title = Developer & Authentication Services
+
+++ GitHubAPI
+menu = GitHub API
+title = GitHub API (api.github.com)
+host = api.github.com
+
+++ DockerHub
+menu = Docker Hub
+title = Docker Hub Registry (ghcr.io)
+host = ghcr.io
+
+++ Bitwarden
+menu = Bitwarden
+title = Bitwarden Identity (identity.bitwarden.com)
+host = identity.bitwarden.com
+
++ CDN
+menu = CDN
+title = CDN
+
+++ SteamCDN
+menu = store.fastly.steamstatic.com (Fastly)
+title = store.fastly.steamstatic.com (Fastly)
+host = store.fastly.steamstatic.com
+
+++ Google
+menu = ajax.googleapis.com
+title = ajax.googleapis.com (Google)
+host = ajax.googleapis.com
+
+++ Microsoft
+menu = ajax.microsoft.com
+title = ajax.microsoft.com (Microsoft)
+host = ajax.microsoft.com
+
+++ Akamai
+menu = bahamut.akamaized.net
+title = bahamut.akamaized.net (Akamai)
+host = bahamut.akamaized.net
+
+++ CacheFly
+menu = cachefly.cachefly.net
+title = cachefly.cachefly.net (CacheFly)
+host = cachefly.cachefly.net
+
+++ FastlyGithub
+menu = github.global.ssl.fastly.net
+title = github.global.ssl.fastly.net (Fastly)
+host = github.global.ssl.fastly.net
+
+++ NetDNA
+menu = netdna.bootstrapcdn.com
+title = netdna.bootstrapcdn.com (NetDNA)
+host = netdna.bootstrapcdn.com
+
+++ CloudFront
+menu = d1bxh8uas1mnw7.cloudfront.net
+title = d1bxh8uas1mnw7.cloudfront.net (CloudFront)
+host = d1bxh8uas1mnw7.cloudfront.net
+
+++ CloudFlare
+menu = cdnjs.cloudflare.com
+title = cdnjs.cloudflare.com (CloudFlare)
+host = cdnjs.cloudflare.com
+
+++ FastlyReddit
+menu = dualstack.reddit.map.fastly.net
+title = dualstack.reddit.map.fastly.net (Fastly)
+host = dualstack.reddit.map.fastly.net
+
++ OVH
+menu = OVH Cloud
+title = OVH Cloud
+
+++ AM
+menu = North America
+title = North America
+
++++ am-ca-quebec
+menu = Canada (Quebec)
+title = Canada (Quebec) - bhs
+host = bhs.proof.ovh.ca
+
++++ am-us-or-hillsboro
+menu = United States (OR - Hillsboro)
+title = United States (OR - Hillsboro) - us-west-or
+host = hil.proof.ovh.us
+
++++ am-us-va-vinthill
+menu = United States (VA - Vint Hill)
+title = United States (VA - Vint Hill) - us-east-va
+host = vin.proof.ovh.us
+
+++ EU
+menu = Europe
+title = Europe
+
++++ eu-fr-gravelines
+menu = France (Gravelines)
+title = France (Gravelines) - gra
+host = gra.proof.ovh.net
+
++++ eu-fr-roubaix
+menu = France (Roubaix)
+title = France (Roubaix) - rbx
+host = rbx.proof.ovh.net
+
++++ eu-fr-strasbourg
+menu = France (Strasbourg)
+title = France (Strasbourg) - sbg
+host = sbg.proof.ovh.net
+
+++ AP
+menu = Asia / Pacific
+title = Asia / Pacific
+
++++ ap-au-sydney
+menu = Australia (Sydney)
+title = Australia (Sydney) - ap-southeast-syd
+host = syd.proof.ovh.net
+
++++ ap-sg
+menu = Singapore
+title = Singapore - sgp
+host = sgp.proof.ovh.net
+
++ Linode
+menu = Linode
+title = Linode
+
+++ AM
+menu = America
+title = America
+
++++ am-br-saopaulo
+menu = Brazil (Sao Paulo)
+title = Brazil (Sao Paulo)
+host = speedtest.sao-paulo.linode.com
+
++++ am-ca-toronto
+menu = Canada (Toronto)
+title = Canada (Toronto)
+host = speedtest.toronto1.linode.com
+
++++ am-us-ca-fremont
+menu = United States (CA - Fremont)
+title = United States (CA - Fremont)
+host = speedtest.fremont.linode.com
+
++++ am-us-ca-losangeles
+menu = United States (CA - Los Angeles)
+title = United States (CA - Los Angeles)
+host = speedtest.los-angeles.linode.com
+
++++ am-us-dc-washington
+menu = United States (DC - Washington)
+title = United States (DC - Washington)
+host = speedtest.washington.linode.com
+
++++ am-us-fl-miami
+menu = United States (FL - Miami)
+title = United States (FL - Miami)
+host = speedtest.miami.linode.com
+
++++ am-us-ga-atlanta
+menu = United States (GA - Atlanta)
+title = United States (GA - Atlanta)
+host = speedtest.atlanta.linode.com
+
++++ am-us-il-chicago
+menu = United States (IL - Chicago)
+title = United States (IL - Chicago)
+host = speedtest.chicago.linode.com
+
++++ am-us-nj-newark
+menu = United States (NJ - Newark)
+title = United States (NJ - Newark)
+host = speedtest.newark.linode.com
+
++++ am-us-tx-dallas
+menu = United States (TX - Dallas)
+title = United States (TX - Dallas)
+host = speedtest.dallas.linode.com
+
++++ am-us-wa-seattle
+menu = United States (WA - Seattle)
+title = United States (WA - Seattle)
+host = speedtest.seattle.linode.com
+
+++ EU
+menu = Europe
+title = Europe
+
++++ eu-de-frankfurt
+menu = Germany (Frankfurt)
+title = Germany (Frankfurt)
+host = speedtest.frankfurt.linode.com
+
++++ eu-de-frankfurt-expansion
+menu = Germany (Frankfurt Expansion)
+title = Germany (Frankfurt Expansion)
+host = fra-de-ping.vultr.com
+
++++ eu-es-madrid
+menu = Spain (Madrid)
+title = Spain (Madrid)
+host = speedtest.madrid.linode.com
+
++++ eu-fr-paris
+menu = France (Paris)
+title = France (Paris)
+host = speedtest.paris.linode.com
+
++++ eu-gb-london
+menu = United Kingdom (London)
+title = United Kingdom (London)
+host = speedtest.london.linode.com
+
++++ eu-gb-london-expansion
+menu = United Kingdom (London Expansion)
+title = United Kingdom (London Expansion)
+host = lon-gb-ping.vultr.com
+
++++ eu-it-milan
+menu = Italy (Milan)
+title = Italy (Milan)
+host = speedtest.milan.linode.com
+
++++ eu-nl-amsterdam
+menu = Netherlands (Amsterdam)
+title = Netherlands (Amsterdam)
+host = speedtest.amsterdam.linode.com
+
++++ eu-se-stockholm
+menu = Sweden (Stockholm)
+title = Sweden (Stockholm)
+host = speedtest.stockholm.linode.com
+
+++ AP
+menu = Asia / Pacific
+title = Asia / Pacific
+
++++ ap-au-melbourne
+menu = Australia (Melbourne)
+title = Australia (Melbourne)
+host = syd-au-ping.vultr.com
+
++++ ap-au-sydney
+menu = Australia (Sydney)
+title = Australia (Sydney)
+host = speedtest.syd1.linode.com
+
++++ ap-id-jakarta
+menu = Indonesia (Jakarta)
+title = Indonesia (Jakarta)
+host = speedtest.jakarta.linode.com
+
++++ ap-in-mumbai
+menu = India (Mumbai)
+title = India (Mumbai)
+host = speedtest.mumbai1.linode.com
+
++++ ap-in-mumbai-expansion
+menu = India (Mumbai Expansion)
+title = India (Mumbai Expansion)
+host = bom-in-ping.vultr.com
+
++++ ap-in-chennai
+menu = India (Chennai)
+title = India (Chennai)
+host = speedtest.chennai.linode.com
+
++++ ap-jp-osaka
+menu = Japan (Osaka)
+title = Japan (Osaka)
+host = speedtest.osaka.linode.com
+
++++ ap-jp-tokyo
+menu = Japan (Tokyo)
+title = Japan (Tokyo)
+host = speedtest.tokyo2.linode.com
+
++++ ap-jp-tokyo-expansion
+menu = Japan (Tokyo Expansion)
+title = Japan (Tokyo Expansion)
+host = hnd-jp-ping.vultr.com
+
++++ ap-sg
+menu = Singapore
+title = Singapore
+host = speedtest.singapore.linode.com
+
++ Vultr
+menu = Vultr
+title = Vultr
+
+++ AM
+menu = America
+title = America
+
++++ am-br-saopaulo
+menu = Brazil (Sao Paulo)
+title = Brazil (Sao Paulo)
+host = sao-br-ping.vultr.com
+
++++ am-ca-toronto
+menu = Canada (Toronto)
+title = Canada (Toronto)
+host = tor-ca-ping.vultr.com
+
++++ am-cl-santiago
+menu = Chile (Santiago)
+title = Chile (Santiago)
+host = scl-cl-ping.vultr.com
+
++++ am-mx-mexicocity
+menu = Mexico (Mexico City)
+title = Mexico (Mexico City)
+host = mex-mx-ping.vultr.com
+
++++ am-us-ca-losangeles
+menu = United States (CA - Los Angeles)
+title = United States (CA - Los Angeles)
+host = lax-ca-us-ping.vultr.com
+
++++ am-us-ca-sanjose
+menu = United States (CA - San Jose)
+title = United States (CA - San Jose)
+host = sjo-ca-us-ping.vultr.com
+
++++ am-us-fl-miami
+menu = United States (FL - Miami)
+title = United States (FL - Miami)
+host = fl-us-ping.vultr.com
+
++++ am-us-ga-atlanta
+menu = United States (GA - Atlanta)
+title = United States (GA - Atlanta)
+host = ga-us-ping.vultr.com
+
++++ am-us-hi-honolulu
+menu = United States (HI - Honolulu)
+title = United States (HI - Honolulu)
+host = hon-hi-us-ping.vultr.com
+
++++ am-us-il-chicago
+menu = United States (IL - Chicago)
+title = United States (IL - Chicago)
+host = il-us-ping.vultr.com
+
++++ am-us-nj
+menu = United States (NJ - New Jersey)
+title = United States (NJ - New Jersey)
+host = nj-us-ping.vultr.com
+
++++ am-us-tx-dallas
+menu = United States (TX - Dallas)
+title = United States (TX - Dallas)
+host = tx-us-ping.vultr.com
+
++++ am-us-wa-seattle
+menu = United States (WA - Seattle)
+title = United States (WA - Seattle)
+host = wa-us-ping.vultr.com
+
+++ EU
+menu = Europe
+title = Europe
+
++++ eu-de-frankfurt
+menu = Germany (Frankfurt)
+title = Germany (Frankfurt)
+host = fra-de-ping.vultr.com
+
++++ eu-es-madrid
+menu = Spain (Madrid)
+title = Spain (Madrid)
+host = mad-es-ping.vultr.com
+
++++ eu-fr-paris
+menu = France (Paris)
+title = France (Paris)
+host = par-fr-ping.vultr.com
+
++++ eu-gb-london
+menu = United Kingdom (London)
+title = United Kingdom (London)
+host = lon-gb-ping.vultr.com
+
++++ eu-gb-manchester
+menu = United Kingdom (Manchester)
+title = United Kingdom (Manchester)
+host = man-uk-ping.vultr.com
+
++++ eu-nl-amsterdam
+menu = Netherlands (Amsterdam)
+title = Netherlands (Amsterdam)
+host = ams-nl-ping.vultr.com
+
++++ eu-pl-warsaw
+menu = Poland (Warsaw)
+title = Poland (Warsaw)
+host = waw-pl-ping.vultr.com
+
++++ eu-se-stockholm
+menu = Sweden (Stockholm)
+title = Sweden (Stockholm)
+host = sto-se-ping.vultr.com
+
+++ AP
+menu = Asia / Pacific
+title = Asia / Pacific
+
++++ ap-au-melbourne
+menu = Australia (Melbourne)
+title = Australia (Melbourne)
+host = mel-au-ping.vultr.com
+
++++ ap-au-sydney
+menu = Australia (Sydney)
+title = Australia (Sydney)
+host = syd-au-ping.vultr.com
+
++++ ap-in-bangalore
+menu = India (Bangalore)
+title = India (Bangalore)
+host = blr-in-ping.vultr.com
+
++++ ap-in-delhi
+menu = India (Delhi)
+title = India (Delhi)
+host = del-in-ping.vultr.com
+
++++ ap-in-mumbai
+menu = India (Mumbai)
+title = India (Mumbai)
+host = bom-in-ping.vultr.com
+
++++ ap-jp-osaka
+menu = Japan (Osaka)
+title = Japan (Osaka)
+host = osk-jp-ping.vultr.com
+
++++ ap-jp-tokyo
+menu = Japan (Tokyo)
+title = Japan (Tokyo)
+host = hnd-jp-ping.vultr.com
+
++++ ap-kr-seoul
+menu = South Korea (Seoul)
+title = South Korea (Seoul)
+host = sel-kor-ping.vultr.com
+
++++ ap-sg
+menu = Singapore
+title = Singapore
+host = sgp-ping.vultr.com
+
+++ AME
+menu = Africa / Middle East
+title = Africa / Middle East
+
++++ ame-za-johannesburg
+menu = South Africa (Johannesburg)
+title = South Africa (Johannesburg)
+host = jnb-za-ping.vultr.com
+
++++ ame-il-telaviv
+menu = Israel (Tel Aviv)
+title = Israel (Tel Aviv)
+host = tlv-il-ping.vultr.com
+
++ Azure
+menu = Azure Services
+title = Azure Services
+
+++ OfficeAdmin
+menu = O365 Admin Portal
+title = O365 Admin Portal - admin.microsoft.com
+host = admin.microsoft.com
+
+++ OfficeAuthService
+menu = O365 Authentication Service
+title = O365 Auth Service - login.microsoftonline.com
+host = login.microsoftonline.com
+
+++ AzureADRegistration
+menu = AAD Registration Service
+title = AAD Registration Service - enterpriseregistration.windows.net
+host = enterpriseregistration.windows.net
+
+++ AADIAM
+menu = AAD IAM Service
+title = AAD IAM Service - main.iam.ad.ext.azure.com
+host = main.iam.ad.ext.azure.com
+
+++ AADGraph
+menu = AAD Graph API
+title = AAD Graph API - graph.windows.net
+host = graph.windows.net
+
+++ MSGraph
+menu = Microsoft Graph API
+title = MS Graph API - graph.microsoft.com
+host = graph.microsoft.com
+
+++ AzureRESTAPI
+menu = Azure REST API
+title = Azure REST API - management.azure.com
+host = management.azure.com
+
++ DNS
+menu = DNS
+title = DNS
+
+++ IPv4MultiTarget
+menu = Combined DNS Latency
+title = Aggregated ping times for IPv4 DNS Servers
+host = /DNS/CloudflareDNS1 /DNS/CloudflareDNS2 /DNS/GoogleDNS1 /DNS/GoogleDNS2 /DNS/OpenDNS1 /DNS/OpenDNS2 /DNS/Quad9 /DNS/Quad92 /DNS/NextDNSv41 /DNS/NextDNSv42 /DNS/HomeDNS4
+
+++ IPv6MultiTarget
+menu = Combined IPv6 DNS Latency
+title = Aggregated ping times for IPv6 DNS Servers
+host = /DNS/CloudFlareNS1v6 /DNS/CloudFlareNS2v6 /DNS/GoogleNS1v6 /DNS/GoogleNS2v6 /DNS/Quad9NS1v6 /DNS/Quad9NS2v6 /DNS/NextDNSv61 /DNS/NextDNSv62 /DNS/HomeDNS6
+
+++ CloudflareDNS1
+menu = Cloudflare DNS 1
+title = Cloudflare DNS 1.1.1.1
+host = 1.1.1.1
+
+++ CloudflareDNS2
+menu = Cloudflare DNS 2
+title = Cloudflare DNS 1.0.0.1
+host = 1.0.0.1
+
+++ CloudFlareNS1v6
+menu = Cloudflare DNS 1 (IPv6)
+title = Cloudflare DNS 1 - 2606:4700:4700::1111
+probe = FPing6
+host = 2606:4700:4700::1111
+
+++ CloudFlareNS2v6
+menu = Cloudflare DNS 2 (IPv6)
+title = Cloudflare DNS 2 - 2606:4700:4700::1001
+probe = FPing6
+host = 2606:4700:4700::1001
+
+++ GoogleDNS1
+menu = Google DNS 1
+title = Google DNS 8.8.8.8
+host = 8.8.8.8
+
+++ GoogleDNS2
+menu = Google DNS 2
+title = Google DNS 8.8.4.4
+host = 8.8.4.4
+
+++ GoogleNS1v6
+menu = Google DNS 1 (IPv6)
+title = Google DNS 1 - 2001:4860:4860::8888
+probe = FPing6
+host = 2001:4860:4860::8888
+
+++ GoogleNS2v6
+menu = Google DNS 2 (IPv6)
+title = Google DNS 2 - 2001:4860:4860::8844
+probe = FPing6
+host = 2001:4860:4860::8844
+
+++ OpenDNS1
+menu = OpenDNS 1
+title = OpenDNS 1 (208.67.222.222)
+host = 208.67.222.222
+
+++ OpenDNS2
+menu = OpenDNS 2
+title = OpenDNS 2 (208.67.220.220)
+host = 208.67.220.220
+
+++ Quad9
+menu = Quad9 DNS 1
+title = Quad9 DNS 9.9.9.9
+host = 9.9.9.9
+
+++ Quad92
+menu = Quad9 DNS 2
+title = Quad9 DNS 149.112.112.112
+host = 149.112.112.112
+
+++ Quad9NS1v6
+menu = Quad9 DNS 1 (IPv6)
+title = Quad9 DNS 1 - 2620:fe::fe
+probe = FPing6
+host = 2620:fe::fe
+
+++ Quad9NS2v6
+menu = Quad9 DNS 2 (IPv6)
+title = Quad9 DNS 2 - 2620:fe::9
+probe = FPing6
+host = 2620:fe::9
+
+++ NextDNSv41
+menu = NextDNS Primary IPv4
+title = NextDNS Primary IPv4
+host = 45.90.28.0
+
+++ NextDNSv42
+menu = NextDNS Secondary IPv4
+title = NextDNS Secondary IPv4
+host = 45.90.30.0
+
+++ NextDNSv61
+menu = NextDNS Primary IPv6
+title = NextDNS Primary IPv6
+probe = FPing6
+host = 2a07:a8c0::
+
+++ NextDNSv62
+menu = NextDNS Secondary IPv6
+title = NextDNS Secondary IPv6
+probe = FPing6
+host = 2a07:a8c1::
+
+++ HomeDNS4
+menu = Home DNS (10.10.10.53)
+title = Home DNS 10.10.10.53
+host = 10.10.10.53
+
+++ HomeDNS6
+menu = Home DNS IPv6
+title = Home DNS 2404:4400:4126:8700::53
+probe = FPing6
+host = 2404:4400:4126:8700::53
+
++ DNSLookups
+menu = DNS Lookups
+title = DNS Lookups
+probe = DNS
+lookup = example.com
+
+++ DNS_Comparison_IPv4
+menu = DNS Providers Comparison (IPv4)
+title = DNS Response Time Comparison (IPv4)
+host = /DNSLookups/CloudflareDNSLU1 /DNSLookups/GoogleDNSLU1 /DNSLookups/OpenDNSLU1 /DNSLookups/Quad9LU /DNSLookups/QuicLU1 /DNSLookups/NextDNSLU1 /DNSLookups/HomeLU4
+
+++ DNS_Comparison_IPv6
+menu = DNS Providers Comparison (IPv6)
+title = DNS Response Time Comparison (IPv6)
+host = /DNSLookups/CloudflareDNSLU1_IPv6 /DNSLookups/GoogleDNSLU1_IPv6 /DNSLookups/OpenDNSLU1_IPv6 /DNSLookups/Quad9LU_IPv6 /DNSLookups/QuicLU61 /DNSLookups/HomeLU6
+
+++ CloudflareDNSLU1
+menu = Cloudflare DNS Primary
+title = Cloudflare DNS (1.1.1.1)
+server = 1.1.1.1
+host = 1.1.1.1
+
+++ CloudflareDNSLU1_IPv6
+menu = Cloudflare DNS Primary (IPv6)
+title = Cloudflare DNS (2606:4700:4700::1111)
+server = 2606:4700:4700::1111
+host = 2606:4700:4700::1111
+
+++ CloudflareDNSLU2
+menu = Cloudflare DNS Secondary
+title = Cloudflare DNS (1.0.0.1)
+server = 1.0.0.1
+host = 1.0.0.1
+
+++ CloudflareDNSLU2_IPv6
+menu = Cloudflare DNS Secondary (IPv6)
+title = Cloudflare DNS (2606:4700:4700::1001)
+server = 2606:4700:4700::1001
+host = 2606:4700:4700::1001
+
+++ GoogleDNSLU1
+menu = Google DNS Primary
+title = Google DNS (8.8.8.8)
+server = 8.8.8.8
+host = 8.8.8.8
+
+++ GoogleDNSLU1_IPv6
+menu = Google DNS Primary (IPv6)
+title = Google DNS (2001:4860:4860::8888)
+server = 2001:4860:4860::8888
+host = 2001:4860:4860::8888
+
+++ GoogleDNSLU2
+menu = Google DNS Secondary
+title = Google DNS (8.8.4.4)
+server = 8.8.4.4
+host = 8.8.4.4
+
+++ GoogleDNSLU2_IPv6
+menu = Google DNS Secondary (IPv6)
+title = Google DNS (2001:4860:4860::8844)
+server = 2001:4860:4860::8844
+host = 2001:4860:4860::8844
+
+++ OpenDNSLU1
+menu = OpenDNS Primary
+title = OpenDNS Primary (208.67.222.222)
+server = 208.67.222.222
+host = 208.67.222.222
+
+++ OpenDNSLU1_IPv6
+menu = OpenDNS Primary (IPv6)
+title = OpenDNS Primary (2620:119:35::35)
+server = 2620:119:35::35
+host = 2620:119:35::35
+
+++ OpenDNSLU2
+menu = OpenDNS Secondary
+title = OpenDNS Secondary (208.67.220.220)
+server = 208.67.220.220
+host = 208.67.220.220
+
+++ OpenDNSLU2_IPv6
+menu = OpenDNS Secondary (IPv6)
+title = OpenDNS Secondary (2620:119:53::53)
+server = 2620:119:53::53
+host = 2620:119:53::53
+
+++ Quad9LU
+menu = Quad9 Primary
+title = Quad9 Primary DNS (9.9.9.9)
+server = 9.9.9.9
+host = 9.9.9.9
+
+++ Quad9LU_IPv6
+menu = Quad9 Primary (IPv6)
+title = Quad9 Primary (2620:fe::fe)
+server = 2620:fe::fe
+host = 2620:fe::fe
+
+++ Quad92LU
+menu = Quad9 Secondary
+title = Quad9 Secondary DNS (149.112.112.112)
+server = 149.112.112.112
+host = 149.112.112.112
+
+++ Quad92LU_IPv6
+menu = Quad9 Secondary (IPv6)
+title = Quad9 Secondary (2620:fe::9)
+server = 2620:fe::9
+host = 2620:fe::9
+
+++ QuicLU1
+menu = Quic DNS Primary
+title = Quic DNS 1 (103.10.125.20)
+server = 103.10.125.20
+host = 103.10.125.20
+
+++ QuicLU2
+menu = Quic DNS Secondary
+title = Quic DNS 2 (149.112.112.112)
+server = 149.112.112.112
+host = 149.112.112.112
+
+++ QuicLU61
+menu = Quic DNS Primary (IPv6)
+title = Quic IPv6 DNS 1 (2407:8b00:f101:10::10)
+server = 2407:8b00:f101:10::10
+host = 2407:8b00:f101:10::10
+
+++ QuicLU62
+menu = Quic DNS Secondary (IPv6)
+title = Quic IPv6 DNS 2 (2407:8b00:f102:10::10)
+server = 2407:8b00:f102:10::10
+host = 2407:8b00:f102:10::10
+
+++ NextDNSLU1
+menu = NextDNS Primary
+title = NextDNS Primary
+server = 45.90.28.0
+host = 45.90.28.0
+
+++ NextDNSLU2
+menu = NextDNS Secondary
+title = NextDNS Secondary
+server = 45.90.30.0
+host = 45.90.30.0
+
+++ HomeLU4
+menu = Home DNS
+title = Home DNS (10.10.10.53)
+server = 10.10.10.53
+host = 10.10.10.53
+
+++ HomeLU6
+menu = Home DNS (IPv6)
+title = Home DNS (2404:4400:4126:8700::53)
+server = 2404:4400:4126:8700::53
+host = 2404:4400:4126:8700::53
+
++ Gaming
+menu = Gaming
+title = Gaming
+
+++ cs2syd1v4
+menu = CS2 Sydney 1 IPv4
+title = CS2/Valve SDR relay syd 103.10.125.20
+host = 103.10.125.20
+
+++ cs2syd2v4
+menu = CS2 Sydney 2 IPv4
+title = CS2/Valve SDR relay syd 103.10.125.40
+host = 103.10.125.40
+
+++ DiscordGateway
+menu = Discord Gateway
+title = Discord Gateway (gateway.discord.gg)
+host = gateway.discord.gg
+
+++ RiotSydney
+menu = Riot Sydney
+title = Riot Games Sydney (103.10.125.20)
+host = 103.10.125.20
+
++ QuicTesting
+menu = Quic
+title = Quic Network
+
+++ ALL-IP4
+menu = All Elements (ip4)
+title = All Network Elements (IPv4)
+host = /QuicTesting/pe2-akl1 /QuicTesting/pe2-akl2 /QuicTesting/pe1-wlg1 /QuicTesting/pe2-chc2 /QuicTesting/core1-akl1 /QuicTesting/core1-akl2 /QuicTesting/core1-chc2 /QuicTesting/bng1-akl1 /QuicTesting/bng2-akl2 /QuicTesting/bng2-wlg1 /QuicTesting/bng1-chc2 /QuicTesting/bdr1-akl2 /QuicTesting/bdr1-syd1
+
+++ ALL-IP6
+menu = All Elements (ip6)
+title = All Network Elements (IPv6)
+host = /QuicTesting/pe2-akl1-6 /QuicTesting/pe2-akl2-6 /QuicTesting/pe2-chc2-6 /QuicTesting/core1-akl1-6 /QuicTesting/core1-akl2-6 /QuicTesting/core1-chc2-6 /QuicTesting/bng1-akl1-6 /QuicTesting/bng2-akl2-6
+
+++ pe2-akl1
+menu = pe2-akl1 (ip4)
+title = pe2-akl1.vetta.net - IPv4
+host = pe2-akl1.vetta.net
+
+++ pe2-akl1-6
+menu = pe2-akl1 (ip6)
+title = pe2-akl1.vetta.net - IPv6
+probe = FPing6
+host = pe2-akl1.vetta.net
+
+++ pe2-akl2
+menu = pe2-akl2 (ip4)
+title = pe2-akl2.vetta.net - IPv4
+host = pe2-akl2.vetta.net
+
+++ pe2-akl2-6
+menu = pe2-akl2 (ip6)
+title = pe2-akl2.vetta.net - IPv6
+probe = FPing6
+host = pe2-akl2.vetta.net
+
+++ pe1-wlg1
+menu = pe1-wlg1 (ip4)
+title = pe1-wlg1.vetta.net - IPv4
+host = pe1-wlg1.vetta.net
+
+++ pe2-chc2
+menu = pe2-chc2 (ip4)
+title = pe2-chc2.vetta.net - IPv4
+host = pe2-chc2.vetta.net
+
+++ pe2-chc2-6
+menu = pe2-chc2 (ip6)
+title = pe2-chc2.vetta.net - IPv6
+probe = FPing6
+host = pe2-chc2.vetta.net
+
+++ core1-akl1
+menu = core1-akl1 (ip4)
+title = core1-akl1.vetta.net - IPv4
+host = core1-akl1.vetta.net
+
+++ core1-akl1-6
+menu = core1-akl1 (ip6)
+title = core1-akl1.vetta.net - IPv6
+probe = FPing6
+host = core1-akl1.vetta.net
+
+++ core1-akl2
+menu = core1-akl2 (ip4)
+title = core1-akl2.vetta.net - IPv4
+host = core1-akl2.vetta.net
+
+++ core1-akl2-6
+menu = core1-akl2 (ip6)
+title = core1-akl2.vetta.net - IPv6
+probe = FPing6
+host = core1-akl2.vetta.net
+
+++ core1-chc2
+menu = core1-chc2 (ip4)
+title = core1-chc2.vetta.net - IPv4
+host = core1-chc2.vetta.net
+
+++ core1-chc2-6
+menu = core1-chc2 (ip6)
+title = core1-chc2.vetta.net - IPv6
+probe = FPing6
+host = core1-chc2.vetta.net
+
+++ bng1-akl1
+menu = bng1-akl1 (ip4)
+title = bng1-akl1.vetta.net - IPv4
+host = bng1-akl1.vetta.net
+
+++ bng1-akl1-6
+menu = bng1-akl1 (ip6)
+title = bng1-akl1.vetta.net - IPv6
+probe = FPing6
+host = bng1-akl1.vetta.net
+
+++ bng2-akl2
+menu = bng2-akl2 (ip4)
+title = bng2-akl2.vetta.net - IPv4
+host = bng2-akl2.vetta.net
+
+++ bng2-akl2-6
+menu = bng2-akl2 (ip6)
+title = bng2-akl2.vetta.net - IPv6
+probe = FPing6
+host = bng2-akl2.vetta.net
+
+++ bng2-wlg1
+menu = bng2-wlg1 (ip4)
+title = bng2-wlg1.vetta.net - IPv4
+host = bng2-wlg1.vetta.net
+
+++ bng1-chc2
+menu = bng1-chc2 (ip4)
+title = bng1-chc2.vetta.net - IPv4
+host = bng1-chc2.vetta.net
+
+# ++ bdr1-akl1
+# menu = bdr1-akl1 (ip4)
+# title = bdr1-akl1.vetta.net - IPv4
+# host = bdr1-akl1.vetta.net
+# 
+# ++ bdr1-akl1-6
+# menu = bdr1-akl1 (ip6)
+# title = bdr1-akl1.vetta.net - IPv6
+# probe = FPing6
+# host = bdr1-akl1.vetta.net
+# 
+# ++ bdr2-akl1
+# menu = bdr2-akl1 (ip4)
+# title = bdr2-akl1.vetta.net - IPv4
+# host = bdr2-akl1.vetta.net
+# 
+# ++ bdr2-akl1-6
+# menu = bdr2-akl1 (ip6)
+# title = bdr2-akl1.vetta.net - IPv6
+# probe = FPing6
+# host = bdr2-akl1.vetta.net
+# 
+++ bdr1-akl2
+menu = bdr1-akl2 (ip4)
+title = bdr1-akl2.vetta.net - IPv4
+host = bdr1-akl2.vetta.net
+
+# ++ bdr2-akl2
+# menu = bdr2-akl2 (ip4)
+# title = bdr2-akl2.vetta.net - IPv4
+# host = bdr2-akl2.vetta.net
+# 
+# ++ bdr2-akl2-6
+# menu = bdr2-akl2 (ip6)
+# title = bdr2-akl2.vetta.net - IPv6
+# probe = FPing6
+# host = bdr2-akl2.vetta.net
+# 
+++ bdr1-syd1
+menu = bdr1-syd1 (ip4)
+title = bdr1-akl1.vetta.net - IPv4
+host = bdr1-akl1.vetta.net
+
+++ BNG-NI
+menu = North Island BNG's
+title = North Island BNG's
+host = /QuicTesting/bng1-akl1 /QuicTesting/bng2-akl2 /QuicTesting/bng2-wlg1
+
+++ BNG-SI
+menu = South Island BNG's
+title = South Island BNG's
+host = /QuicTesting/bng1-chc2
+
+++ CORE-NI
+menu = North Island Core
+title = North Island Core Elements
+host = /QuicTesting/core1-akl1 /QuicTesting/core1-akl2
+
+++ CORE-SI
+menu = South Island Core
+title = South Island Core Elements
+host = /QuicTesting/core1-chc2
+
+++ PE-NI
+menu = North Island PE
+title = North Island Provider Edge
+host = /QuicTesting/pe2-akl1 /QuicTesting/pe2-akl2 /QuicTesting/pe1-wlg1
+
+++ PE-SI
+menu = South Island PE
+title = South Island Provider Edge
+host = /QuicTesting/pe2-chc2
+
+++ PE-IN
+menu = International PE
+title = International Provider Edge
+host = /QuicTesting/bdr1-syd1
+
++ Hetzner
+menu = Hetzner
+title = Hetzner
+
+++ fsn1
+menu = Falkenstein (fsn1)
+title = Hetzner fsn1
+host = fsn1-speed.hetzner.com
+
+++ nbg1
+menu = Nuremberg (nbg1)
+title = Hetzner nbg1
+host = nbg1-speed.hetzner.com
+
+++ hel1
+menu = Helsinki (hel1)
+title = Hetzner hel1
+host = hel1-speed.hetzner.com
+
+++ ash
+menu = Ashburn (ash)
+title = Hetzner ash
+host = ash-speed.hetzner.com
+
+++ storage-sgp
+menu = Storage Box (Singapore)
+title = Hetzner Storage Box Singapore Gateway
+host = sgp.proof.ovh.net
+
++ OracleCloud
+menu = Oracle Cloud
+title = Oracle Cloud
+
+++ us-ashburn-1
+menu = Ashburn (us-ashburn-1)
+title = OCI us-ashburn-1
+host = objectstorage.us-ashburn-1.oraclecloud.com
+
+++ ca-toronto-1
+menu = Toronto (ca-toronto-1)
+title = OCI ca-toronto-1
+host = objectstorage.ca-toronto-1.oraclecloud.com
+
+++ eu-frankfurt-1
+menu = Frankfurt (eu-frankfurt-1)
+title = OCI eu-frankfurt-1
+host = objectstorage.eu-frankfurt-1.oraclecloud.com
+
+++ ap-sydney-1
+menu = Sydney (ap-sydney-1)
+title = OCI ap-sydney-1
+host = objectstorage.ap-sydney-1.oraclecloud.com
+
+++ ap-tokyo-1
+menu = Tokyo (ap-tokyo-1)
+title = OCI ap-tokyo-1
+host = objectstorage.ap-tokyo-1.oraclecloud.com
+
++ AmazonAWS
+menu = Amazon AWS
+title = Amazon AWS
+probe = TCPPing
+
+++ us-east-1
+menu = N. Virginia (us-east-1)
+title = AWS us-east-1
+host = ec2.us-east-1.amazonaws.com
+
+++ us-west-2
+menu = Oregon (us-west-2)
+title = AWS us-west-2
+host = ec2.us-west-2.amazonaws.com
+
+++ ca-central-1
+menu = Montreal (ca-central-1)
+title = AWS ca-central-1
+host = ec2.ca-central-1.amazonaws.com
+
+++ eu-west-1
+menu = Ireland (eu-west-1)
+title = AWS eu-west-1
+host = ec2.eu-west-1.amazonaws.com
+
+++ ap-southeast-2
+menu = Sydney (ap-southeast-2)
+title = AWS ap-southeast-2
+host = ec2.ap-southeast-2.amazonaws.com

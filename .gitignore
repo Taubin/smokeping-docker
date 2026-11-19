@@ -1,0 +1,24 @@
+# RRD time-series data and cached graph images
+data/
+cache/
+config/cache/
+*.rrd
+*.png
+
+# Logs, backups, and temporary scripts
+*.log
+*.bak
+*.swp
+check_hosts.py
+
+# Secrets
+.env
+*secrets*
+
+# Scripts
+*.py
+*.sh
+
+*.py
+*.sh
+bad-hosts.txt

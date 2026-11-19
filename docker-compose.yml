@@ -1,0 +1,24 @@
+services:
+  smokeping:
+    hostname: thinkserver
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    cap_add:
+      - NET_RAW
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Pacific/Auckland
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    ports:
+      - "8447:80"
+    networks:
+      - default
+      - pangolin_internal
+    restart: unless-stopped
+
+networks:
+  pangolin_internal:
+    external: true
