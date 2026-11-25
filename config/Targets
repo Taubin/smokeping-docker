@@ -1384,3 +1384,6 @@ host = ec2.eu-west-1.amazonaws.com
 menu = Sydney (ap-southeast-2)
 title = AWS ap-southeast-2
 host = ec2.ap-southeast-2.amazonaws.com
+
+@include quictesting-ipv4.conf
+@include quictesting-ipv6.conf
