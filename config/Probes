@@ -2,10 +2,21 @@
 
 + FPing
 binary = /usr/sbin/fping
+protocol = 4
+hostinterval = 15
+offset = 50%
+pings = 20
+step = 300
+timeout = 1.5
 
 + FPing6
 binary = /usr/sbin/fping
 protocol = 6
+hostinterval = 15
+offset = 50%
+pings = 20
+step = 300
+timeout = 1.5
 
 + DNS
 binary = /usr/bin/dig
